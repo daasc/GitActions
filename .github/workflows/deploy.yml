@@ -1,9 +1,9 @@
 name: Deploy
 
 on:
-  push:
-    branches: ["dev"]
-  pull_request: ["dev"]
+    push:
+        branches: ["dev"]
+
 
 jobs:
   check_all_english_links:
