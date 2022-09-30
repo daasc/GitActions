@@ -2,11 +2,8 @@ name: Deploy
 
 on:
   push:
-    branches:
-      - master
-  pull_request:
-      - dev
-      - master
+    branches: ["dev"]
+  pull_request: ["dev"]
 
 jobs:
   check_all_english_links:
