@@ -1,16 +1,26 @@
 name: Deploy
-run-name: ${{ github.actor }} 🚀
-on: 
-    push: 
+
+on:
+    push:
         branches: ["dev"]
+
+
 jobs:
-  Explore-GitHub-Actions:
+  check_all_english_links:
+    name: Check all links
     runs-on: ubuntu-latest
+  
     steps:
-      - name: Check out repository code
+      - name: Check out repo's default branch
         uses: actions/checkout@v3
-        uses: actions/setup-node@v1
-        with: 
-            node-version: 16
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.13.x
+          cache: npm
+      - name: npm ci
         run: npm ci
-        run: npm run test:unit
+      - name: npm run build
+        run: npm run build
+      - name: npm run deploy
+        run: npm run deploy
