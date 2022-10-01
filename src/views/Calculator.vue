@@ -3,14 +3,12 @@
     <h1>Tip Calculator</h1>
     <section class="container">
       <div class="container__calculator"></div>
-      <div class="container__result"><button-reset></button-reset></div>
+      <div class="container__result"></div>
     </section>
   </main>
 </template>
 <script>
-import ButtonReset from "../components/ButtonReset.vue";
 export default {
-  components: { ButtonReset },
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Calculator",
 };
