@@ -27,7 +27,6 @@ export default {
 };
 </script>
 <style scoped>
-
 .container__result {
   background-color: var(--color-container-result);
   width: 50%;
