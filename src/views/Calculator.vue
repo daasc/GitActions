@@ -2,15 +2,16 @@
   <main>
     <h1>Tip Calculator</h1>
     <section class="container">
-      <div class="container__calculator"></div>
+      <calculator-container></calculator-container>
       <result-container></result-container>
     </section>
   </main>
 </template>
 <script>
 import ResultContainer from "@/components/ResultContainer.vue";
+import CalculatorContainer from "../components/CalculatorContainer.vue";
 export default {
-  components: { ResultContainer },
+  components: { ResultContainer, CalculatorContainer },
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Calculator",
 };
@@ -33,7 +34,7 @@ h1 {
   background-color: white;
   margin: 0 auto;
   border-radius: 20px;
-  flex-direction: row-reverse;
   padding: 0 20px;
+  justify-content: space-between;
 }
 </style>
