@@ -13,7 +13,7 @@ export default {
 .input-box {
   display: flex;
   align-items: center;
-  max-width: 300px;  
+  max-width: 300px;
   background-color: var(--color-input);
   border: 1px solid #a0a0a0;
   border-radius: 4px;
@@ -42,6 +42,4 @@ export default {
 .input-box:focus-within {
   border-color: #777;
 }
-
-
 </style>
