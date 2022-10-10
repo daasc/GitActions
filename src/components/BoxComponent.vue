@@ -1,5 +1,8 @@
 <template>
-  <div class="box">{{ number }}%</div>
+  <div class="box">
+    <input v-if="custom" type="number" placeholder="Custom" />
+    <div v-else>{{ number }}%</div>
+  </div>
 </template>
 <script>
 export default {
@@ -12,6 +15,10 @@ export default {
       type: String,
       default: "#03363a",
     },
+    custom: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -19,7 +26,7 @@ export default {
 .box {
   color: white;
   background-color: v-bind(color);
-  width: 33%;
+  width: 30%;
   height: 40px;
   border-radius: 8px;
   display: flex;
@@ -27,5 +34,23 @@ export default {
   flex-direction: column;
   text-align: center;
   font-weight: bold;
+  cursor: pointer;
+}
+input[type="number"] {
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+  background-color: var(--color-input);
+  border: 1px solid #a0a0a0;
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: sans-serif;
+  -moz-appearance: textfield;
+  height: 50px;
+  text-align: center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 </style>
