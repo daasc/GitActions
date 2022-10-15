@@ -2,7 +2,6 @@ import { describe, it, expect } from "vitest";
 
 import { mount } from "@vue/test-utils";
 import ResultContainer from "../ResultContainer.vue";
-
 const makeSut = () => {
   const sut = mount(ResultContainer);
 

@@ -1,12 +1,33 @@
 <template>
   <div class="input-box">
     <slot name="sufix"></slot>
-    <input type="number" placeholder="" />
+    <input
+      type="number"
+      data-testid="bill"
+      v-model="value"
+      @change="emitValue"
+    />
   </div>
 </template>
 <script>
 export default {
   name: "InputComponent",
+  props: {
+    emit: {
+      type: String,
+    },
+  },
+  data() {
+    return {
+      value: 0,
+    };
+  },
+  methods: {
+    emitValue() {
+      console.log(this.emit, this.value);
+      this.$emit("setValue", { value: this.value, emit: this.emit });
+    },
+  },
 };
 </script>
 <style scoped>

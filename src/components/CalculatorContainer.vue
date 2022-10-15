@@ -3,7 +3,7 @@
     <div class="content__calculator">
       <label for="bill"
         >Bill
-        <input-component>
+        <input-component :emit="bill" @setValue="setValue">
           <template #sufix>
             <span class="prefix"
               ><img src="../assets/img/dollar.png" alt=""
@@ -24,7 +24,7 @@
       </div>
       <label for="numberPeople"
         >Number of the people
-        <input-component>
+        <input-component :emit="person" @setValue="setValue">
           <template #sufix>
             <span class="prefix"
               ><img src="../assets/img/user.png" alt=""
@@ -40,6 +40,22 @@ import InputComponent from "./InputComponent.vue";
 export default {
   components: { BoxComponent, InputComponent },
   name: "CalculatorContainer",
+  methods: {
+    setValue({ value, emit }) {
+      if (emit === "setBill") {
+        console.log("value: ", value);
+        this.$emit("setTip", value);
+      } else {
+        this.$emit("setPersons", value);
+      }
+    },
+  },
+  data() {
+    return {
+      bill: "setBill",
+      person: "setPerson",
+    };
+  },
 };
 </script>
 <style scoped>
