@@ -2,7 +2,10 @@
   <main>
     <h1>Tip Calculator</h1>
     <section class="container">
-      <calculator-container></calculator-container>
+      <calculator-container
+        @setTip="setTip"
+        @setPersons="setPersons"
+      ></calculator-container>
       <result-container></result-container>
     </section>
   </main>
@@ -14,6 +17,24 @@ export default {
   components: { ResultContainer, CalculatorContainer },
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Calculator",
+  data() {
+    return {
+      tip: 0,
+      persons: 0,
+      percentage: 0,
+    };
+  },
+  methods: {
+    setTip({ tip }) {
+      this.tip = tip;
+    },
+    setPersons({ persons }) {
+      this.persons = persons;
+    },
+    setPercentage({ percentage }) {
+      this.percentage = percentage;
+    },
+  },
 };
 </script>
 <style lang="css" scoped>
