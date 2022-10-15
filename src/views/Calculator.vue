@@ -2,7 +2,10 @@
   <main>
     <h1>Tip Calculator</h1>
     <section class="container">
-      <calculator-container @setTip="setTip" @setPersons="setPersons"></calculator-container>
+      <calculator-container
+        @setTip="setTip"
+        @setPersons="setPersons"
+      ></calculator-container>
       <result-container></result-container>
     </section>
   </main>

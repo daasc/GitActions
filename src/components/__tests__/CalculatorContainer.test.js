@@ -16,6 +16,7 @@ describe("CalculatorContainer", () => {
     const sut = makeSut();
     expect(sut.exists()).toBeTruthy();
   });
+
   it("should issue an event when the user enters the account value", async () => {
     const sut = makeSut();
 

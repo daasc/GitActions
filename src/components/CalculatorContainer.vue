@@ -43,7 +43,6 @@ export default {
   methods: {
     setValue({ value, emit }) {
       if (emit === "setBill") {
-        console.log("value: ", value);
         this.$emit("setTip", value);
       } else {
         this.$emit("setPersons", value);
