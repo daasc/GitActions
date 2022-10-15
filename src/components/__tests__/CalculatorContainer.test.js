@@ -4,7 +4,6 @@ import { mount } from "@vue/test-utils";
 import CalculatorContainer from "../CalculatorContainer.vue";
 
 // import BoxComponent from "@/components/BoxComponent.vue";
-// import InputComponent from "@/components/InputComponent.vue";
 const makeSut = () => {
   const sut = mount(CalculatorContainer);
 
@@ -24,5 +23,14 @@ describe("CalculatorContainer", () => {
     await inputBill.setValue(100);
 
     expect(sut.emitted().setTip[0]).toStrictEqual([100]);
+  });
+
+  it("should issue an event when the user enters the account value", async () => {
+    const sut = makeSut();
+
+    const inputBill = sut.findAll('[data-testid="bill"]').at(1);
+    await inputBill.setValue(10);
+
+    expect(sut.emitted().setPersons[0]).toStrictEqual([10]);
   });
 });
