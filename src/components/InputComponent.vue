@@ -1,19 +1,40 @@
 <template>
   <div class="input-box">
     <slot name="sufix"></slot>
-    <input type="number" placeholder="" />
+    <input
+      type="number"
+      data-testid="bill"
+      v-model="value"
+      @change="emitValue"
+    />
   </div>
 </template>
 <script>
 export default {
   name: "InputComponent",
+  props: {
+    emit: {
+      type: String,
+    },
+  },
+  data() {
+    return {
+      value: 0,
+    };
+  },
+  methods: {
+    emitValue() {
+      console.log("emit: ", this.emit);
+      this.$emit("setValue", { value: this.value, emit: this.emit });
+    },
+  },
 };
 </script>
 <style scoped>
 .input-box {
   display: flex;
   align-items: center;
-  max-width: 300px;
+  width: 100%;
   background-color: var(--color-input);
   border: 1px solid #a0a0a0;
   border-radius: 4px;

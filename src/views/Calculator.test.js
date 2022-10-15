@@ -6,6 +6,6 @@ import Calculator from "../views/Calculator.vue";
 describe("Calculator", () => {
   it("renders properly", () => {
     const wrapper = mount(Calculator);
-    expect(wrapper.vm).toBeDefined();
+    expect(wrapper.exists()).toBeTruthy();
   });
 });
