@@ -14,6 +14,24 @@ export default {
   components: { ResultContainer, CalculatorContainer },
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Calculator",
+  data() {
+    return {
+      tip: 0,
+      persons: 0,
+      percentage: 0,
+    };
+  },
+  methods: {
+    setTip({ tip }) {
+      this.tip = tip;
+    },
+    setPersons({ persons }) {
+      this.persons = persons;
+    },
+    setPercentage({ percentage }) {
+      this.percentage = percentage;
+    },
+  },
 };
 </script>
 <style lang="css" scoped>

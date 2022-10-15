@@ -13,7 +13,7 @@ export default {
 .input-box {
   display: flex;
   align-items: center;
-  max-width: 300px;
+  width: 100%;
   background-color: var(--color-input);
   border: 1px solid #a0a0a0;
   border-radius: 4px;
