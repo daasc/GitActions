@@ -6,14 +6,16 @@
           <span>Tip Amount</span>
           <span>/ person</span>
         </div>
-        <div class="number_result">$100.00</div>
+        <div class="number_result" data-testid="tip-amount">
+          ${{ tipAmount }}
+        </div>
       </div>
       <div class="content_result">
         <div class="describe_result">
           <span>Total</span>
           <span>/ person</span>
         </div>
-        <div class="number_result">$100.00</div>
+        <div class="number_result">${{ total }}</div>
       </div>
     </div>
     <button-reset></button-reset>
@@ -24,6 +26,18 @@ import ButtonReset from "./ButtonReset.vue";
 export default {
   components: { ButtonReset },
   name: "ResultContainer",
+  props: {
+    tipAmount: {
+      type: Number,
+      default: 0,
+      required: true,
+    },
+    total: {
+      type: Number,
+      default: 0,
+      required: true,
+    },
+  },
 };
 </script>
 <style scoped>
