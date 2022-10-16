@@ -24,7 +24,6 @@ export default {
   },
   methods: {
     emitValue() {
-      console.log("emit: ", this.emit);
       this.$emit("setValue", { value: this.value, emit: this.emit });
     },
   },

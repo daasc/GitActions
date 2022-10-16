@@ -2,8 +2,7 @@ import { describe, it, expect } from "vitest";
 
 import { mount } from "@vue/test-utils";
 import CalculatorContainer from "../CalculatorContainer.vue";
-
-// import BoxComponent from "@/components/BoxComponent.vue";
+import BoxComponent from "../BoxComponent.vue";
 const makeSut = () => {
   const sut = mount(CalculatorContainer);
 
@@ -32,5 +31,14 @@ describe("CalculatorContainer", () => {
     await inputBill.setValue(10);
 
     expect(sut.emitted().setPersons[0]).toStrictEqual([10]);
+  });
+
+  it("should issue an event when the user selected a percentage", async () => {
+    const sut = makeSut();
+
+    const boxPercentage = sut.findAllComponents(BoxComponent).at(1);
+    await boxPercentage.trigger("click");
+
+    expect(sut.emitted().setPercentage[0]).toStrictEqual([10]);
   });
 });
