@@ -1,6 +1,13 @@
 <template>
   <div class="box">
-    <input v-if="custom" type="number" placeholder="Custom" />
+    <input
+      v-if="custom"
+      type="number"
+      placeholder="Custom"
+      data-testid="inputCustom"
+      v-model="value"
+      @input="valueCustom"
+    />
     <div v-else>{{ number }}%</div>
   </div>
 </template>
@@ -18,6 +25,11 @@ export default {
     custom: {
       type: Boolean,
       default: false,
+    },
+  },
+  methods: {
+    valueCustom() {
+      this.$emit("valueCustom", this.value);
     },
   },
 };
