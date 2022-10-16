@@ -14,12 +14,15 @@
       <div>
         Select Tip
         <div class="box__list">
-          <box-component :number="5"></box-component>
-          <box-component :number="10"></box-component>
-          <box-component :number="15"></box-component>
-          <box-component :number="20"></box-component>
-          <box-component :number="25"></box-component>
-          <box-component :custom="true"></box-component>
+          <box-component :number="5" @click="setCustom(5)"></box-component>
+          <box-component :number="10" @click="setCustom(10)"></box-component>
+          <box-component :number="15" @click="setCustom(15)"></box-component>
+          <box-component :number="20" @click="setCustom(20)"></box-component>
+          <box-component :number="25" @click="setCustom(25)"></box-component>
+          <box-component
+            :custom="true"
+            @valueCustom="setCustom"
+          ></box-component>
         </div>
       </div>
       <label for="numberPeople"
@@ -47,6 +50,9 @@ export default {
       } else {
         this.$emit("setPersons", value);
       }
+    },
+    setCustom(value) {
+      this.$emit("setPercentage", value);
     },
   },
   data() {
