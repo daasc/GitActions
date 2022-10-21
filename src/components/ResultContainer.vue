@@ -6,14 +6,16 @@
           <span>Tip Amount</span>
           <span>/ person</span>
         </div>
-        <div class="number_result">$100.00</div>
+        <div class="number_result" data-testid="tip-amount">
+          ${{ tipValue }}
+        </div>
       </div>
       <div class="content_result">
         <div class="describe_result">
           <span>Total</span>
           <span>/ person</span>
         </div>
-        <div class="number_result">$100.00</div>
+        <div class="number_result">${{ tipPerPerson }}</div>
       </div>
     </div>
     <button-reset></button-reset>
@@ -24,6 +26,36 @@ import ButtonReset from "./ButtonReset.vue";
 export default {
   components: { ButtonReset },
   name: "ResultContainer",
+  props: {
+    tipAmount: {
+      type: Number,
+      default: 0,
+      required: true,
+    },
+    person: {
+      type: Number,
+      default: 0,
+      required: true,
+    },
+    percentage: {
+      type: Number,
+      default: 0,
+      required: true,
+    },
+  },
+  computed: {
+    tipValue() {
+      const result = (this.tipAmount / 100) * this.percentage;
+      return Number(result).toFixed(2);
+    },
+    tipPerPerson() {
+      const result = ((this.tipAmount / 100) * this.percentage) / this.person;
+      if (!isNaN(result) && this.person) {
+        return Number(result).toFixed(2);
+      }
+      return 0;
+    },
+  },
 };
 </script>
 <style scoped>

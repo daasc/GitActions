@@ -5,8 +5,13 @@
       <calculator-container
         @setTip="setTip"
         @setPersons="setPersons"
+        @setPercentage="setPercentage"
       ></calculator-container>
-      <result-container></result-container>
+      <result-container
+        :tipAmount="tip"
+        :percentage="percentage"
+        :person="persons"
+      ></result-container>
     </section>
   </main>
 </template>
@@ -25,13 +30,13 @@ export default {
     };
   },
   methods: {
-    setTip({ tip }) {
+    setTip(tip) {
       this.tip = tip;
     },
-    setPersons({ persons }) {
+    setPersons(persons) {
       this.persons = persons;
     },
-    setPercentage({ percentage }) {
+    setPercentage(percentage) {
       this.percentage = percentage;
     },
   },
