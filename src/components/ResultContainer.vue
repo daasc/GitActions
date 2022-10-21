@@ -7,7 +7,7 @@
           <span>/ person</span>
         </div>
         <div class="number_result" data-testid="tip-amount">
-          ${{ tipAmount }}
+          ${{ tipValue }}
         </div>
       </div>
       <div class="content_result">
@@ -15,7 +15,7 @@
           <span>Total</span>
           <span>/ person</span>
         </div>
-        <div class="number_result">${{ total }}</div>
+        <div class="number_result">${{ tipPerPerson }}</div>
       </div>
     </div>
     <button-reset></button-reset>
@@ -32,10 +32,28 @@ export default {
       default: 0,
       required: true,
     },
-    total: {
+    person: {
       type: Number,
       default: 0,
       required: true,
+    },
+    percentage: {
+      type: Number,
+      default: 0,
+      required: true,
+    },
+  },
+  computed: {
+    tipValue() {
+      const result = (this.tipAmount / 100) * this.percentage;
+      return Number(result).toFixed(2);
+    },
+    tipPerPerson() {
+      const result = ((this.tipAmount / 100) * this.percentage) / this.person;
+      if (!isNaN(result) && this.person) {
+        return Number(result).toFixed(2);
+      }
+      return 0;
     },
   },
 };
