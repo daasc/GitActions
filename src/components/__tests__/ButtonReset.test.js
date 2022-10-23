@@ -14,4 +14,13 @@ describe("ButtonReset", () => {
     const sut = makeSut();
     expect(sut.exists()).toBeTruthy();
   });
+
+  it("should emit event of the reset number", () => {
+    const sut = makeSut();
+
+    const button = sut.find("button");
+    button.trigger("click");
+
+    expect(sut.emitted().resetValues[0]).toStrictEqual([]);
+  });
 });

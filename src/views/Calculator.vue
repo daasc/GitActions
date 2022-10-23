@@ -11,6 +11,7 @@
         :tipAmount="tip"
         :percentage="percentage"
         :person="persons"
+        @resetValue="reset"
       ></result-container>
     </section>
   </main>
@@ -38,6 +39,11 @@ export default {
     },
     setPercentage(percentage) {
       this.percentage = percentage;
+    },
+    reset() {
+      this.percentage = 0;
+      this.persons = 0;
+      this.tip = 0;
     },
   },
 };
