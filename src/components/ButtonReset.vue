@@ -1,11 +1,16 @@
 <template>
   <div class="button_reset">
-    <button>Reset</button>
+    <button @click="reset()">Reset</button>
   </div>
 </template>
 <script>
 export default {
   name: "ButtonReset",
+  methods: {
+    reset() {
+      this.$emit("resetValue");
+    },
+  },
 };
 </script>
 <style scoped>

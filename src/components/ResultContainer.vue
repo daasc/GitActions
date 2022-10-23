@@ -18,7 +18,7 @@
         <div class="number_result">${{ tipPerPerson }}</div>
       </div>
     </div>
-    <button-reset></button-reset>
+    <button-reset @resetValue="reset"></button-reset>
   </div>
 </template>
 <script>
@@ -54,6 +54,11 @@ export default {
         return Number(result).toFixed(2);
       }
       return 0;
+    },
+  },
+  methods: {
+    reset() {
+      this.$emit("resetValue");
     },
   },
 };
