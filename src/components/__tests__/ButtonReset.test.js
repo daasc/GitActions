@@ -21,6 +21,6 @@ describe("ButtonReset", () => {
     const button = sut.find("button");
     button.trigger("click");
 
-    expect(sut.emitted().resetValues[0]).toStrictEqual([]);
+    expect(sut.emitted().resetValue[0]).toStrictEqual([]);
   });
 });
